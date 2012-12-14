@@ -6,6 +6,11 @@
 BYTE EtherType[ETH_TLEN * 2];
 pf_notificacion_ip pnotip
 int identificador = 0;
+int gestiona_trama_ethernet(int tamano, const BYTE *trama,struct timeval *tv) {
+
+    return 0;
+}
+
 /****************************************************************************
  * Inicializa el nivel IP, tras inicialiar todos los superiores
  * (incluyendo nivel1 y ARP); debe llamarse antes de usar otras 
@@ -26,7 +31,7 @@ int ip_inicializa(){
         EtherType[1] = 0x06;
         EtherType[2] = 0x08; 
         EtherType[3] = 0x00;
-	if (IniciarNivel1(2, EtherType, pnotip, 0) != ETH_OK) {
+	if (IniciarNivel1(2, EtherType, gestiona_trama_ethernetgestiona_trama_ethernet, 0) != ETH_OK) {
 	    fprintf(stderr, "Error en IniciarNivel1\n");
 	    return -1;
 	if (arp_inicializa() != 0) {
